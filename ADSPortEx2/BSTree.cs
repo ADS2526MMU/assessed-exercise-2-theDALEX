@@ -21,9 +21,22 @@ namespace ADSPortEx2
         }
 
         //Functions for EX.2A
-        public void InsertItem(T item)
+        public void InsertItem(VideoGame item)
         {
-            throw new NotImplementedException();
+            insertItem(item,ref root);
+        }
+
+        private void insertItem(VideoGame item, ref Node<T> tree)
+        {
+            if (tree == null)
+                tree = new Node<T>(item);
+
+            else if (item.CompareTo(tree.Data.Releaseyear) < 0)
+                insertItem(item, ref tree.Left);
+
+            else if (item.CompareTo(tree.Data.Releaseyear) > 0)
+                insertItem(item, ref tree.Right);
+
         }
 
         public int Height()
