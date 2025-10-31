@@ -17,7 +17,7 @@ namespace ADSPortEx2
 
         public BSTree()
         {
-            throw new NotImplementedException();
+            root = null;
         }
 
         //Functions for EX.2A

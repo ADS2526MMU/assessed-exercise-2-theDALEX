@@ -21,6 +21,8 @@ namespace ADSPortEx2
             // "2. Display all items... ect
             //}
 
+            BSTree<VideoGame> videoGames = new BSTree<VideoGame>();
+
             Console.WriteLine("=== Retro gaming preservation project system ===");
 
             bool running = true;
@@ -36,11 +38,28 @@ namespace ADSPortEx2
                 Console.WriteLine("6. Current Height of the tree");
                 Console.WriteLine("7. Exit");
                 string choice = Console.ReadLine();
+
+                
+
                 switch (choice)
                 {
                     case "1":
                         // Code to add a video game
-                        Console.WriteLine("Adding a new video game...");
+                        Console.WriteLine("Enter video game title:");
+                        string title = Console.ReadLine();
+                        Console.WriteLine("Enter video game developer:");
+                        string developer = Console.ReadLine();
+                        Console.WriteLine("Enter video game release year:");
+                        int releaseYear;
+                        while (!int.TryParse(Console.ReadLine(), out releaseYear))
+                        {
+                            Console.WriteLine("Invalid input. Please enter a valid year:");
+                        }
+
+                        VideoGame videoGame = new VideoGame(title, developer, releaseYear);
+                        videoGames.InsertItem(videoGame);
+
+                        Console.WriteLine("Added new video game");
                         // Implementation goes here
                         break;
                     case "2":

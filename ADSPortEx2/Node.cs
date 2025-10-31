@@ -14,16 +14,20 @@ namespace ADSPortEx2
 
     class Node<T> where T : IComparable
     {
+        private VideoGame data;
+        public Node<T> Left, Right;
 
-        public Node(T item)
+        public Node(VideoGame item)
         {
-            throw new NotImplementedException();
+            data = item;
+            Left = null;
+            Right = null;
         }
 
-        public T Data
+        public VideoGame Data
         {
-            get { throw new NotImplementedException(); }
-            set { throw new NotImplementedException(); }
+            get { return data; }
+            set { data = value; }
         }
 
     } // End of class
